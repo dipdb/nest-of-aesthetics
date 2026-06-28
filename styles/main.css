@@ -7,21 +7,21 @@
 
 /* --- Design Tokens --- */
 :root {
-  --bg:           #FAF8F5;
-  --bg-alt:       #F4F0EB;
-  --bg-deep:      #EDE8E0;
-  --text:         #2C2A26;
-  --text-muted:   #8C8070;
-  --text-light:   #A89A8A;
-  --accent-sand:  #C9A98A;
-  --accent-rose:  #D4B5A0;
-  --accent-warm:  #B8926E;
-  --border:       #E8E2D9;
-  --border-light: #F0EBE3;
-  --btn-bg:       #2C2A26;
-  --btn-text:     #FAF8F5;
+  --bg:           #F4EADF; /* Rich toasted almond cream */
+  --bg-alt:       #EADECF; /* Warm sand */
+  --bg-deep:      #DFCEB8; /* Soft honey butterscotch */
+  --text:         #2D231A; /* Deep espresso charcoal */
+  --text-muted:   #736252; /* Warm earth brown */
+  --text-light:   #9C8976; /* Soft clay grey */
+  --accent-sand:  #C9945B; /* Rich golden butterscotch */
+  --accent-rose:  #DDB995; /* Creamy honey */
+  --accent-warm:  #A6703B; /* Toasted caramel butterscotch */
+  --border:       #DFD3C2; /* Solid warm border */
+  --border-light: #ECE3D7; /* Subtle divider */
+  --btn-bg:       #2D231A; /* Espresso buttons */
+  --btn-text:     #FAF4ED; /* Warm cream text */
   --white:        #FFFDF9;
-  --gold:         #C9A98A;
+  --gold:         #C9945B;
 
   --serif:  'Cormorant Garamond', Georgia, serif;
   --sans:   'DM Sans', system-ui, sans-serif;
