@@ -1,0 +1,92 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend:
+  url: http://localhost:8081/api/v1
+  allowed_hosts:
+    - localhost
+
+media_folder: "public/uploads"
+public_folder: "/public/uploads"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/posts"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Cover Image", name: "cover_image", widget: "image" }
+      - { label: "Category", name: "category", widget: "select", options: ["Home Decor", "Nail Art", "Aesthetic Lifestyle"] }
+      - {
+          label: "Subcategory",
+          name: "subcategory",
+          widget: "select",
+          options: [
+            "Living Room",
+            "Bedroom",
+            "Kitchen",
+            "Bathroom",
+            "Cozy Corner",
+            "Minimal Nails",
+            "Acrylic Nails",
+            "Seasonal Nails",
+            "French Tips",
+            "Summer inspired nail art",
+            "Fruit inspired",
+            "Beach wali phir ek",
+            "Floral",
+            "Morning Routine",
+            "Night Routine",
+            "Productivity Aesthetic"
+          ]
+        }
+      - {
+          label: "Tags",
+          name: "tags",
+          widget: "select",
+          multiple: true,
+          options: [
+            "minimal",
+            "cozy",
+            "aesthetic",
+            "warm tones",
+            "boho",
+            "japandi",
+            "pastel",
+            "clean girl"
+          ]
+        }
+      - {
+          label: "Affiliate Links",
+          name: "affiliate_links",
+          widget: "list",
+          required: false,
+          fields: [
+            { label: "Title", name: "title", widget: "string" },
+            { label: "URL", name: "url", widget: "string" }
+          ]
+        }
+      - { label: "Published", name: "published", widget: "boolean", default: true, required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "shop"
+    label: "Shop Items"
+    folder: "content/shop"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title / Name", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Home Decor & Furniture", "Candles & Fragrance", "Books & Stationery", "Lifestyle & Wellness"] }
+      - { label: "Product Image", name: "image", widget: "image", required: false }
+      - { label: "Note / Review", name: "note", widget: "text" }
+      - { label: "Shop Link", name: "url", widget: "string" }
+      - { label: "Published", name: "published", widget: "boolean", default: true, required: false }
+      - { label: "Date Added", name: "date", widget: "datetime", required: false }

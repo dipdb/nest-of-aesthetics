@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop the Nest — Nest of Aesthetics</title>
+  <meta name="description" content="A curated collection of things I genuinely love and use — home decor, candles, books, furniture and lifestyle finds. Affiliate links disclosed." />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    body { padding-top: 70px; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav__logo">Nest of Aesthetics</a>
+    <ul class="nav__links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog">Journal</a></li>
+      <li><a href="/shop" class="active">Shop</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile" id="mobileNav">
+    <button class="nav__mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="/">Home</a>
+    <a href="/blog">Journal</a>
+    <a href="/shop">Shop</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero section" style="padding-bottom:1rem;">
+    <div class="container" style="text-align:center;">
+      <p class="page-hero__kicker fade-up">curated with care</p>
+      <h1 class="page-hero__title fade-up" data-delay="80" style="font-style:italic;">shop the nest</h1>
+      <div class="divider divider--center fade-up" data-delay="130"></div>
+      <p class="page-hero__desc fade-up" data-delay="180">
+        things I love and actually use — for the home, the senses, and the intentional life.
+      </p>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:1rem;">
+    <div class="container">
+
+      <!-- Disclaimer -->
+      <p class="shop-disclaimer fade-up">
+        ✦ Some links on this page are affiliate links. I only ever share things I genuinely love and personally use. Thank you for supporting this space.
+      </p>
+
+      <!-- Filters -->
+      <div class="shop-filters fade-up" data-delay="80">
+        <button class="filter-btn active" data-filter="all"><span>All</span></button>
+        <button class="filter-btn" data-filter="home-decor"><span>Home Decor &amp; Furniture</span></button>
+        <button class="filter-btn" data-filter="candles"><span>Candles &amp; Fragrance</span></button>
+        <button class="filter-btn" data-filter="books"><span>Books &amp; Stationery</span></button>
+        <button class="filter-btn" data-filter="lifestyle"><span>Lifestyle &amp; Wellness</span></button>
+      </div>
+
+      <!-- Product Grid -->
+      <!-- Product Grid -->
+      <div class="shop-product-grid" id="shop-product-grid">
+        <!-- Dynamic products will be loaded here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter section">
+    <div class="container">
+      <div class="newsletter__inner">
+        <p class="newsletter__kicker fade-up">stay in the nest</p>
+        <h2 class="newsletter__heading fade-up" data-delay="80">join the nest</h2>
+        <p class="newsletter__desc fade-up" data-delay="140">New shop edits, styling ideas, and honest finds — delivered softly to your inbox.</p>
+        <form class="newsletter__form fade-up" data-delay="200" action="#" method="post">
+          <input class="newsletter__input" type="email" placeholder="your@email.com" required aria-label="Email address" />
+          <button class="newsletter__btn" type="submit">Subscribe</button>
+        </form>
+        <p class="newsletter__disclaimer fade-up" data-delay="260">No spam, ever. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__brand-name">Nest of Aesthetics</p>
+          <p class="footer__brand-desc">A quiet editorial space for home decor, interior styling, and nail designs.</p>
+          <div class="footer__social" style="margin-top:1.5rem;">
+            <a href="#" aria-label="Instagram" target="_blank">&#9651;</a>
+            <a href="https://in.pinterest.com/nestofaesthetics/" aria-label="Pinterest" target="_blank">&#9671;</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Navigate</p>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Journal</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Shop By</p>
+          <ul>
+            <li><a href="/shop">Home Decor</a></li>
+            <li><a href="/shop">Candles</a></li>
+            <li><a href="/shop">Books</a></li>
+            <li><a href="/shop">Lifestyle</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Info</p>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Affiliate Disclosure</a></li>
+            <li><a href="/contact">Work With Me</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2024 Nest of Aesthetics. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const gridContainer = document.getElementById('shop-product-grid');
+
+      const getCategorySlug = (cat) => {
+        if (!cat) return '';
+        const c = cat.toLowerCase();
+        if (c.includes('decor') || c.includes('furniture')) return 'home-decor';
+        if (c.includes('candle') || c.includes('fragrance')) return 'candles';
+        if (c.includes('book') || c.includes('stationery')) return 'books';
+        if (c.includes('lifestyle') || c.includes('wellness')) return 'lifestyle';
+        return c.replace(/\s+/g, '-');
+      };
+
+      const getCategoryDisplay = (cat) => {
+        if (!cat) return '';
+        const c = cat.toLowerCase();
+        if (c.includes('decor') || c.includes('furniture')) return 'Home Decor & Furniture';
+        if (c.includes('candle') || c.includes('fragrance')) return 'Candles & Fragrance';
+        if (c.includes('book') || c.includes('stationery')) return 'Books & Stationery';
+        if (c.includes('lifestyle') || c.includes('wellness')) return 'Lifestyle & Wellness';
+        return cat;
+      };
+
+      const gradients = [
+        'linear-gradient(135deg,#E8D9CC,#D8C4B8,#C8B4A8)',
+        'linear-gradient(135deg,#D9D1C4,#C9BEA8,#B4A898)',
+        'linear-gradient(135deg,#CCC4B4,#B8B0A0,#A89E90)',
+        'linear-gradient(135deg,#D8CCB8,#C8BAA8,#B8AA98)',
+        'linear-gradient(135deg,#E0D4C4,#D0C4B0,#C0B4A0)',
+        'linear-gradient(135deg,#C8C0B0,#B8B0A0,#A8A090)',
+        'linear-gradient(135deg,#D4CCB8,#C4BCA8,#B4AC98)',
+        'linear-gradient(135deg,#E4DCD0,#D4CCB8,#C4BCA8)'
+      ];
+
+      fetch('/api/shop')
+        .then(res => res.json())
+        .then(items => {
+          if (!items || items.length === 0) {
+            gridContainer.innerHTML = `
+              <div class="no-posts fade-up" style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem; background: var(--bg-alt); border-radius: 8px; border: 1px dashed var(--border-light); margin-top: 1rem;">
+                <p style="font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem;">No items in the shop yet.</p>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">Start by adding products in the Content Manager.</p>
+                <a href="/admin/" class="btn btn--outline" style="display: inline-block;">Open Content Manager</a>
+              </div>
+            `;
+            return;
+          }
+
+          gridContainer.innerHTML = items.map((item, idx) => {
+            const catSlug = getCategorySlug(item.category);
+            const catDisplay = getCategoryDisplay(item.category);
+            const delay = (idx % 3) * 80;
+
+            let imageHtml = '';
+            if (item.image) {
+              imageHtml = `<img src="${item.image}" alt="${item.title}" loading="lazy" />`;
+            } else {
+              const grad = gradients[idx % gradients.length];
+              imageHtml = `<div class="img-placeholder" style="background:${grad};width:100%;height:100%;"></div>`;
+            }
+
+            return `
+              <div class="shop-product-card fade-up in-view" data-category="${catSlug}" data-delay="${delay}" style="opacity: 1; transform: translateY(0);">
+                <div class="shop-product-card__img-wrap">
+                  ${imageHtml}
+                </div>
+                <div class="shop-product-card__body">
+                  <p class="shop-product-card__category">${catDisplay}</p>
+                  <h2 class="shop-product-card__name">${item.title}</h2>
+                  <p class="shop-product-card__note">${item.note || ''}</p>
+                  <a href="${item.url || '#'}" target="_blank" rel="noopener noreferrer" class="btn btn--sm">Shop Now →</a>
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          // Re-bind filter buttons for dynamic elements
+          const filterBtns = document.querySelectorAll('.filter-btn');
+          filterBtns.forEach(btn => {
+            btn.onclick = () => {
+              filterBtns.forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+              const filter = btn.dataset.filter;
+
+              document.querySelectorAll('[data-category]').forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                  card.style.display = '';
+                  card.classList.remove('in-view');
+                  setTimeout(() => card.classList.add('in-view'), 50);
+                } else {
+                  card.style.display = 'none';
+                }
+              });
+            };
+          });
+        })
+        .catch(err => {
+          console.error('Error fetching shop items:', err);
+          gridContainer.innerHTML = `<p style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">Failed to load shop items.</p>`;
+        });
+    });
+  </script>
+</body>
+</html>

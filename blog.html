@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journal — Nest of Aesthetics</title>
+  <meta name="description" content="Browse the Nest of Aesthetics journal — editorials on home decor, nail design, interior styling, and intentional everyday beauty." />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    body { padding-top: 70px; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav__logo">Nest of Aesthetics</a>
+    <ul class="nav__links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog" class="active">Journal</a></li>
+      <li><a href="/shop">Shop</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile" id="mobileNav">
+    <button class="nav__mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="/">Home</a>
+    <a href="/blog">Journal</a>
+    <a href="/shop">Shop</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero section" style="padding-bottom:2rem;background:var(--bg-alt);">
+    <div class="container">
+      <p class="page-hero__kicker fade-up">words &amp; images</p>
+      <h1 class="page-hero__title fade-up" data-delay="80">The Journal</h1>
+      <div class="divider divider--ornate fade-up" data-delay="140"></div>
+      <p class="page-hero__desc fade-up" data-delay="200">
+        Essays, editorials, and ideas on beautiful spaces, nail artistry, and the art of everyday life.
+      </p>
+    </div>
+  </header>
+
+  <!-- FILTERS -->
+  <section class="section" style="padding-top:0;padding-bottom:0;">
+    <div class="container">
+      <div class="blog-filters fade-up">
+        <button class="filter-btn active" data-filter="all"><span>All Posts</span></button>
+        <button class="filter-btn" data-filter="home-decor"><span>Home Decor</span></button>
+        <button class="filter-btn" data-filter="nail-design"><span>Nail Design</span></button>
+        <button class="filter-btn" data-filter="interior-styling"><span>Interior Styling</span></button>
+        <button class="filter-btn" data-filter="lifestyle"><span>Lifestyle</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED POST -->
+  <section class="section" style="padding-top:0;" id="featured-posts-section">
+    <div class="container" id="featured-posts-container">
+      <!-- Dynamic featured post will be injected here -->
+    </div>
+  </section>
+
+  <!-- BLOG MAIN BODY -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="blog-body">
+
+        <!-- Main Grid -->
+           <div class="blog-grid-2col" id="blog-posts-grid">
+             <!-- Dynamic blog grid posts will be injected here -->
+           </div>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+          <div class="sidebar__section">
+            <div class="sidebar__header-box">
+              <p class="sidebar__widget-title"><span>✦</span> Popular Posts</p>
+            </div>
+            <div class="sidebar__content-box" id="sidebar-popular-posts">
+              <!-- Dynamic popular posts will be injected here -->
+            </div>
+          </div>
+
+          <div class="sidebar__section">
+            <div class="sidebar__header-box">
+              <p class="sidebar__widget-title"><span>✦</span> Browse by Category</p>
+            </div>
+            <div class="sidebar__content-box">
+              <div class="sidebar__cats" id="sidebar-category-list">
+                <!-- Dynamic categories will be injected here -->
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar__section">
+            <div class="sidebar__header-box">
+              <p class="sidebar__widget-title"><span>✦</span> Shop My Favorites</p>
+            </div>
+            <div class="sidebar__content-box">
+              <div class="sidebar__shop-list" id="sidebar-shop-list">
+                <!-- Dynamic shop favorites will be injected here -->
+              </div>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter section">
+    <div class="container">
+      <div class="newsletter__inner">
+        <p class="newsletter__kicker fade-up">stay in the nest</p>
+        <h2 class="newsletter__heading fade-up" data-delay="80">join the nest</h2>
+        <p class="newsletter__desc fade-up" data-delay="140">Weekly-ish thoughts on home decor, nail design, shop edits, and what's on my bedside table.</p>
+        <form class="newsletter__form fade-up" data-delay="200" action="#" method="post">
+          <input class="newsletter__input" type="email" placeholder="your@email.com" required aria-label="Email address" />
+          <button class="newsletter__btn" type="submit">Subscribe</button>
+        </form>
+        <p class="newsletter__disclaimer fade-up" data-delay="260">No spam, ever. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__brand-name">Nest of Aesthetics</p>
+          <p class="footer__brand-desc">A quiet editorial space for home decor, interior styling, and nail designs.</p>
+          <div class="footer__social" style="margin-top:1.5rem;">
+            <a href="#" aria-label="Instagram" target="_blank">&#9651;</a>
+            <a href="https://in.pinterest.com/nestofaesthetics/" aria-label="Pinterest" target="_blank">&#9671;</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Navigate</p>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Journal</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Categories</p>
+          <ul>
+            <li><a href="/blog">Home Decor</a></li>
+            <li><a href="/blog">Nail Design</a></li>
+            <li><a href="/blog">Interior Styling</a></li>
+            <li><a href="/blog">Lifestyle</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Info</p>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Affiliate Disclosure</a></li>
+            <li><a href="/contact">Work With Me</a></li>
+            <li><a href="/contact">Press</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2024 Nest of Aesthetics. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const getCategorySlug = (cat) => {
+        if (!cat) return '';
+        const c = cat.toLowerCase();
+        if (c.includes('nail')) return 'nail-design';
+        if (c.includes('decor')) return 'home-decor';
+        if (c.includes('interior') || c.includes('styling')) return 'interior-styling';
+        if (c.includes('lifestyle')) return 'lifestyle';
+        return c.replace(/\s+/g, '-');
+      };
+
+      const featuredContainer = document.getElementById('featured-posts-container');
+      const gridContainer = document.getElementById('blog-posts-grid');
+      const popularContainer = document.getElementById('sidebar-popular-posts');
+      const categoryListContainer = document.getElementById('sidebar-category-list');
+      const featuredSection = document.getElementById('featured-posts-section');
+
+      fetch('/api/posts')
+        .then(res => res.json())
+        .then(posts => {
+          if (!posts || posts.length === 0) {
+            if (featuredSection) featuredSection.style.display = 'none';
+            gridContainer.innerHTML = `
+              <div class="no-posts fade-up" style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem; background: var(--bg-alt); border-radius: 8px; border: 1px dashed var(--border-light); margin-top: 1rem;">
+                <p style="font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem;">No stories found in the nest yet.</p>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">Start by writing a post in the Content Manager.</p>
+                <a href="/admin/" class="btn btn--outline" style="display: inline-block;">Open Content Manager</a>
+              </div>
+            `;
+            if (popularContainer) popularContainer.innerHTML = '<p style="color: var(--text-muted); font-size: 0.9rem; padding: 1rem 0;">No stories yet.</p>';
+            if (categoryListContainer) {
+              categoryListContainer.innerHTML = `
+                <div class="sidebar__cat"><span>Home Decor</span><span class="sidebar__cat-count">0</span></div>
+                <div class="sidebar__cat"><span>Nail Design</span><span class="sidebar__cat-count">0</span></div>
+                <div class="sidebar__cat"><span>Interior Styling</span><span class="sidebar__cat-count">0</span></div>
+                <div class="sidebar__cat"><span>Lifestyle</span><span class="sidebar__cat-count">0</span></div>
+              `;
+            }
+            return;
+          }
+
+          // 1. Render Featured Post (first post)
+          const featuredPost = posts[0];
+          const featuredDateStr = featuredPost.date ? new Date(featuredPost.date).toLocaleDateString('en-US', {
+            month: 'long', day: 'numeric', year: 'numeric'
+          }) : 'Recently';
+          
+          const featuredWordCount = featuredPost.rawBody ? featuredPost.rawBody.trim().split(/\s+/).length : 0;
+          const featuredReadingTime = Math.max(1, Math.ceil(featuredWordCount / 200)) + ' min read';
+          const featuredCatSlug = getCategorySlug(featuredPost.category);
+
+          featuredContainer.innerHTML = `
+            <a href="/post?slug=${featuredPost.slug}" style="display:block;margin-bottom:2rem;">
+              <div class="blog-featured fade-in in-view" data-category="${featuredCatSlug}" style="opacity:1;">
+                <div class="blog-featured__img-wrap">
+                  <img src="${featuredPost.cover_image || 'images/home-decor-cover.png'}" alt="${featuredPost.title}" loading="lazy" />
+                </div>
+                <div class="blog-featured__content">
+                  <p class="blog-featured__kicker">✦ ${featuredPost.category || 'Story'}</p>
+                  <h2 class="blog-featured__title">${featuredPost.title}</h2>
+                  <p class="blog-featured__excerpt">${featuredPost.description || ''}</p>
+                  <p class="blog-featured__meta">By Suchita · ${featuredDateStr} · ${featuredReadingTime}</p>
+                  <div style="margin-top:1.5rem;">
+                    <span class="btn btn--outline btn--sm">Read the Post</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          `;
+
+          // 2. Render Main Grid (subsequent posts)
+          const gridPosts = posts.slice(1);
+          if (gridPosts.length === 0) {
+            gridContainer.innerHTML = `<p style="grid-column:1/-1; color: var(--text-muted); text-align: center; padding: 3rem 0; font-family: var(--serif); font-style: italic;">More stories coming soon ✦</p>`;
+          } else {
+            gridContainer.innerHTML = gridPosts.map((post, idx) => {
+              const dateStr = post.date ? new Date(post.date).toLocaleDateString('en-US', {
+                month: 'long', day: 'numeric', year: 'numeric'
+              }) : 'Recently';
+              const wordCount = post.rawBody ? post.rawBody.trim().split(/\s+/).length : 0;
+              const readingTime = Math.max(1, Math.ceil(wordCount / 200)) + ' min read';
+              const catSlug = getCategorySlug(post.category);
+
+              const isNailCategory = post.category === 'Nail Art' || post.category === 'Nail Design';
+              const tagStyle = isNailCategory ? 'background:rgba(212,181,160,0.15);color:var(--accent-rose);' : '';
+
+              return `
+                <article class="post-card fade-up in-view" data-category="${catSlug}" style="opacity: 1; transform: translateY(0);">
+                  <a href="/post?slug=${post.slug}" class="post-card__link" aria-label="Read: ${post.title}"></a>
+                  <div class="post-card__img-wrap">
+                    <img src="${post.cover_image || 'images/blog-1.png'}" alt="${post.title}" loading="lazy" />
+                  </div>
+                  <span class="tag post-card__tag" style="${tagStyle}">${post.category || 'Uncategorized'}</span>
+                  <div class="post-card__body">
+                    <h3 class="post-card__title">${post.title}</h3>
+                    <p class="post-card__excerpt">${post.description || ''}</p>
+                    <p class="post-card__meta">${dateStr} · ${readingTime}</p>
+                  </div>
+                </article>
+              `;
+            }).join('');
+          }
+
+          // 3. Render Sidebar Popular Posts (Latest 3)
+          const popularPosts = posts.slice(0, 3);
+          popularContainer.innerHTML = popularPosts.map(post => {
+            const dateStr = post.date ? new Date(post.date).toLocaleDateString('en-US', {
+              month: 'long', day: 'numeric', year: 'numeric'
+            }) : 'Recently';
+            return `
+              <div class="sidebar__post">
+                <div class="sidebar__post-img">
+                  <img src="${post.cover_image || 'images/blog-1.png'}" alt="${post.title}" loading="lazy" />
+                </div>
+                <div>
+                  <a href="/post?slug=${post.slug}" class="sidebar__post-title">${post.title}</a>
+                  <p class="sidebar__post-date">${dateStr}</p>
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          // 4. Render Sidebar Categories counts
+          const counts = { 'home-decor': 0, 'nail-design': 0, 'interior-styling': 0, 'lifestyle': 0 };
+          posts.forEach(post => {
+            const catSlug = getCategorySlug(post.category);
+            if (counts.hasOwnProperty(catSlug)) {
+              counts[catSlug]++;
+            } else {
+              counts[catSlug] = 1;
+            }
+          });
+
+          categoryListContainer.innerHTML = `
+            <div class="sidebar__cat"><span>Home Decor</span><span class="sidebar__cat-count">${counts['home-decor']}</span></div>
+            <div class="sidebar__cat"><span>Nail Design</span><span class="sidebar__cat-count">${counts['nail-design']}</span></div>
+            <div class="sidebar__cat"><span>Interior Styling</span><span class="sidebar__cat-count">${counts['interior-styling']}</span></div>
+            <div class="sidebar__cat"><span>Lifestyle</span><span class="sidebar__cat-count">${counts['lifestyle']}</span></div>
+          `;
+
+          // 5. Re-bind the filter button logic
+          const filterBtns = document.querySelectorAll('.filter-btn');
+          filterBtns.forEach(btn => {
+            btn.onclick = () => {
+              filterBtns.forEach(b => b.classList.remove('active'));
+              btn.classList.add('active');
+              const filter = btn.dataset.filter;
+
+              const cards = document.querySelectorAll('[data-category]');
+              cards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                  card.style.display = '';
+                  card.classList.remove('in-view');
+                  setTimeout(() => card.classList.add('in-view'), 50);
+                } else {
+                  card.style.display = 'none';
+                }
+              });
+            };
+          });
+
+          // 6. Fetch and render Sidebar Shop Favorites
+          fetch('/api/shop')
+            .then(res => res.json())
+            .then(shopItems => {
+              const sidebarShopList = document.getElementById('sidebar-shop-list');
+              if (sidebarShopList && shopItems && shopItems.length > 0) {
+                // Slice first 2 published items
+                const featuredItems = shopItems.slice(0, 2);
+                sidebarShopList.innerHTML = featuredItems.map((item, idx) => {
+                  let imgHtml = '';
+                  if (item.image) {
+                    imgHtml = `<img src="${item.image}" alt="${item.title}" loading="lazy" />`;
+                  } else {
+                    const grad = 'linear-gradient(135deg,#E0D4C4,#D0C4B4)';
+                    imgHtml = `<div class="img-placeholder" style="background:${grad};width:100%;height:100%;"></div>`;
+                  }
+                  // Clean up name by splitting on '—' or ':'
+                  const displayName = item.title.split('—')[0].split(':')[0].trim();
+                  return `
+                    <div class="sidebar__shop-item">
+                      <div class="sidebar__shop-item-img">
+                        ${imgHtml}
+                      </div>
+                      <div class="sidebar__shop-item-info">
+                        <p class="sidebar__shop-item-title">${displayName}</p>
+                        <a href="${item.url || '#'}" target="_blank" class="sidebar__shop-item-link">Shop it →</a>
+                      </div>
+                    </div>
+                  `;
+                }).join('');
+              } else if (sidebarShopList) {
+                sidebarShopList.innerHTML = '<p style="color: var(--text-muted); font-size: 0.9rem; padding: 1rem 0;">No shop favorites listed yet.</p>';
+              }
+            })
+            .catch(err => console.error('Error fetching shop items for sidebar:', err));
+        })
+        .catch(err => {
+          console.error('Error fetching posts:', err);
+          gridContainer.innerHTML = `<p style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">Failed to load journal posts.</p>`;
+        });
+    });
+  </script>
+</body>
+</html>

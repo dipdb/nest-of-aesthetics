@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Nest of Aesthetics</title>
+  <meta name="description"
+    content="Get in touch with Nest of Aesthetics — collaborations, brand partnerships, affiliate inquiries, or just to say hello." />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    body {
+      padding-top: 70px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav__logo">Nest of Aesthetics</a>
+    <ul class="nav__links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog">Journal</a></li>
+      <li><a href="/shop">Shop</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact" class="active">Contact</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile" id="mobileNav">
+    <button class="nav__mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="/">Home</a>
+    <a href="/blog">Journal</a>
+    <a href="/shop">Shop</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero section" style="padding-bottom:1rem;">
+    <div class="container">
+      <p class="page-hero__kicker fade-up">always happy to hear from you</p>
+      <h1 class="page-hero__title fade-up" data-delay="80">Say Hello</h1>
+      <div class="divider divider--center fade-up" data-delay="140"></div>
+      <p class="page-hero__desc fade-up" data-delay="200">
+        Whether you have a question, a collaboration idea,<br />or just want to share what's on your bedside table —
+        my inbox is open.
+      </p>
+    </div>
+  </header>
+
+  <!-- CONTACT SECTION -->
+  <section class="section" style="padding-top:2rem;">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Info side -->
+        <div class="fade-up">
+          <p class="contact-info__kicker">get in touch</p>
+          <h2 class="contact-info__title">Let's talk about<br />beautiful things.</h2>
+          <div class="divider"></div>
+          <p class="contact-info__body">
+            I read every message personally. Whether you're a reader with a question, a
+            brand interested in collaborating, or someone who just wants to chat about
+            linen curtains — I'd love to hear from you. I typically respond within 2–3 days.
+          </p>
+          <p class="contact-info__body">
+            For faster replies, you can also find me on Instagram where I'm usually in
+            the DMs between coffee and candle lighting.
+          </p>
+
+          <!-- Social links -->
+          <div style="display:flex;gap:0.8rem;margin-top:1.5rem;margin-bottom:2rem;">
+            <a href="#" target="_blank" aria-label="Instagram"
+              style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--border);padding-bottom:2px;transition:color 0.3s,border-color 0.3s;"
+              onmouseover="this.style.color='var(--accent-sand)';this.style.borderColor='var(--accent-sand)'"
+              onmouseout="this.style.color='var(--text-muted)';this.style.borderColor='var(--border)'">Instagram</a>
+            <span style="color:var(--border);">·</span>
+            <a href="https://in.pinterest.com/nestofaesthetics/" target="_blank" aria-label="Pinterest"
+              style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--border);padding-bottom:2px;transition:color 0.3s,border-color 0.3s;"
+              onmouseover="this.style.color='var(--accent-sand)';this.style.borderColor='var(--accent-sand)'"
+              onmouseout="this.style.color='var(--text-muted)';this.style.borderColor='var(--border)'">Pinterest</a>
+          </div>
+
+          <!-- Work with me -->
+          <div class="work-box">
+            <h3 class="work-box__title">Work With Me</h3>
+            <p class="work-box__text">
+              I occasionally partner with brands that align with the values of this space —
+              quiet luxury, nail design, intentional styling, and genuine beauty. If you're
+              interested in a collaboration, sponsored content, or affiliate partnership,
+              I'd love to hear your idea. Please include details about your brand and what
+              kind of partnership you have in mind.
+            </p>
+            <p class="work-box__text">
+              What I consider: brand campaigns, product gifting + review, affiliate partnerships,
+              interior styling brand features, long-form sponsored essays.
+            </p>
+            <p style="font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-sand);">
+              hello@nestofaesthetics.com</p>
+          </div>
+        </div>
+
+        <!-- Form side -->
+        <div class="fade-up" data-delay="100">
+          <form class="contact-form" id="contactForm" action="#" method="post" novalidate>
+
+            <div class="form-group">
+              <label for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" name="name" placeholder="Suchita" required autocomplete="name" />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" name="email" placeholder="your@email.com" required
+                autocomplete="email" />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <input type="text" id="contact-subject" name="subject" placeholder="What's on your mind?" />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" placeholder="Tell me everything..." required
+                minlength="20"></textarea>
+            </div>
+
+            <button type="submit" class="btn" id="contact-submit" style="width:100%;text-align:center;">
+              Send Message
+            </button>
+
+            <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.8rem;text-align:center;opacity:0.7;">
+              I'll reply within 2–3 business days. Promise.
+            </p>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter section">
+    <div class="container">
+      <div class="newsletter__inner">
+        <p class="newsletter__kicker fade-up">stay in the nest</p>
+        <h2 class="newsletter__heading fade-up" data-delay="80">join the nest</h2>
+        <p class="newsletter__desc fade-up" data-delay="140">Weekly-ish thoughts on home decor, nail design, shop edits,
+          and what's on my bedside table.</p>
+        <form class="newsletter__form fade-up" data-delay="200" action="#" method="post">
+          <input class="newsletter__input" type="email" placeholder="your@email.com" required
+            aria-label="Email address" />
+          <button class="newsletter__btn" type="submit">Subscribe</button>
+        </form>
+        <p class="newsletter__disclaimer fade-up" data-delay="260">No spam, ever. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__brand-name">Nest of Aesthetics</p>
+          <p class="footer__brand-desc">A quiet editorial space for home decor, interior styling, and nail designs.</p>
+          <div class="footer__social" style="margin-top:1.5rem;">
+            <a href="#" aria-label="Instagram" target="_blank">&#9651;</a>
+            <a href="https://in.pinterest.com/nestofaesthetics/" aria-label="Pinterest" target="_blank">&#9671;</a>
+
+          </div>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Navigate</p>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Journal</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Categories</p>
+          <ul>
+            <li><a href="/blog">Home Decor</a></li>
+            <li><a href="/blog">Nail Design</a></li>
+            <li><a href="/blog">Interior Styling</a></li>
+            <li><a href="/blog">Lifestyle</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Info</p>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Affiliate Disclosure</a></li>
+            <li><a href="/contact">Work With Me</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2024 Nest of Aesthetics. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>

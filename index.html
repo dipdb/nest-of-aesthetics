@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nest of Aesthetics — Home Decor, Nail Design & Interior Styling</title>
+  <meta name="description" content="A soft, minimal editorial space for home decor, nail design, and interior styling. Nest of Aesthetics — style up. live beautifully." />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    /* Page-specific: home has no top padding (full-bleed hero) */
+    body { padding-top: 0; }
+
+    /* =====================================================
+       PAGE ENTRANCE — brief dark veil lifts on load
+       ===================================================== */
+    .page-entrance {
+      position: fixed;
+      inset: 0;
+      background: #1A1510;
+      z-index: 9999;
+      pointer-events: none;
+      animation: entranceReveal 0.25s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    }
+
+    @keyframes entranceReveal {
+      0%   { opacity: 1; }
+      40%  { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    /* =====================================================
+       HERO NEST PORTAL — oval vignette ("nest hole")
+       ===================================================== */
+    .hero__nest-portal {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      /* initial: wide open oval — will be updated by JS on scroll */
+      background: radial-gradient(
+        ellipse 65% 60% at 50% 52%,
+        transparent 35%,
+        rgba(18, 13, 8, 0.20) 100%
+      );
+      transition: background 0.05s linear;
+    }
+
+    /* Nest ring — warm organic oval that frames the nest entrance */
+    .hero__nest-ring {
+      position: absolute;
+      inset: 5% 10%;
+      border: 1.5px solid rgba(201, 169, 138, 0.45);
+      border-radius: 50%;
+      z-index: 3;
+      pointer-events: none;
+      animation: ringPulse 3.5s ease-in-out infinite;
+    }
+
+    .hero__nest-ring--outer {
+      inset: 1.5% 5%;
+      border-color: rgba(201, 169, 138, 0.22);
+      animation-delay: -2s;
+      animation-duration: 5s;
+    }
+
+    .hero__nest-ring--inner {
+      inset: 11% 16%;
+      border-color: rgba(212, 181, 160, 0.3);
+      animation-delay: -1s;
+      animation-duration: 4.5s;
+    }
+
+    @keyframes ringPulse {
+      0%, 100% { opacity: 0.7; transform: scale(1);     }
+      50%       { opacity: 1;   transform: scale(1.018); }
+    }
+
+    /* =====================================================
+       DUST PARTICLES — warm floating motes in the nest
+       ===================================================== */
+    .hero__dust {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .dust-particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 245, 220, 0.9);
+      box-shadow:
+        0 0 6px 2px rgba(201, 169, 138, 0.7),
+        0 0 12px 4px rgba(201, 169, 138, 0.3);
+      animation: dustFloat linear infinite;
+      will-change: transform, opacity;
+    }
+
+    @keyframes dustFloat {
+      0%   { transform: translateY(0)   translateX(0)              scale(1);   opacity: 0; }
+      8%   { opacity: 0.9; }
+      50%  { transform: translateY(-45vh) translateX(var(--drift))  scale(0.7); opacity: 0.6; }
+      90%  { opacity: 0.15; }
+      100% { transform: translateY(-92vh) translateX(calc(var(--drift)*1.8)) scale(0.3); opacity: 0; }
+    }
+
+    /* =====================================================
+       HERO SCROLL INDICATOR
+       ===================================================== */
+    .hero__scroll {
+      position: absolute;
+      bottom: 2.5rem; right: var(--gutter);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255, 253, 249, 0.5);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .hero__scroll-line {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, rgba(255,253,249,0.5), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50%       { opacity: 1; }
+    }
+  </style>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <!-- PAGE ENTRANCE VEIL -->
+  <div class="page-entrance" aria-hidden="true"></div>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav__logo">Nest of Aesthetics</a>
+    <ul class="nav__links">
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/blog">Journal</a></li>
+      <li><a href="/shop">Shop</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav__mobile" id="mobileNav">
+    <button class="nav__mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="/">Home</a>
+    <a href="/blog">Journal</a>
+    <a href="/shop">Shop</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <img
+      class="hero__img"
+      src="images/hero.png"
+      alt="Soft, warm interior with linen curtains, ceramic vase, and morning light"
+    />
+    <!-- Nest portal: oval vignette that responds to scroll -->
+    <div class="hero__nest-portal" aria-hidden="true"></div>
+    <!-- Organic entrance rings -->
+    <div class="hero__nest-ring hero__nest-ring--outer" aria-hidden="true"></div>
+    <div class="hero__nest-ring" aria-hidden="true"></div>
+    <div class="hero__nest-ring hero__nest-ring--inner" aria-hidden="true"></div>
+    <!-- Floating warm dust / light motes -->
+    <div class="hero__dust" id="nestDust" aria-hidden="true"></div>
+    <!-- Dark base overlay for text legibility -->
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__kicker" style="color: #FFFDF9 !important; opacity: 1 !important;">est. 2024 · a lifestyle journal</p>
+      <h1 class="hero__title">Nest of<br>Aesthetics</h1>
+      <p class="hero__tagline">slow down. style up. live beautifully.</p>
+    </div>
+    <div class="hero__scroll">
+      <div class="hero__scroll-line"></div>
+      <span>enter</span>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-inner">
+      <span>Home Decor</span><span class="dot">✦</span>
+      <span>Nail Design</span><span class="dot">✦</span>
+      <span>Interior Styling</span><span class="dot">✦</span>
+      <span>Quiet Luxury</span><span class="dot">✦</span>
+      <span>Linen &amp; Light</span><span class="dot">✦</span>
+      <span>Intentional Living</span><span class="dot">✦</span>
+      <span>Curated Beauty</span><span class="dot">✦</span>
+      <!-- duplicate for seamless loop -->
+      <span>Home Decor</span><span class="dot">✦</span>
+      <span>Nail Design</span><span class="dot">✦</span>
+      <span>Interior Styling</span><span class="dot">✦</span>
+      <span>Quiet Luxury</span><span class="dot">✦</span>
+      <span>Linen &amp; Light</span><span class="dot">✦</span>
+      <span>Intentional Living</span><span class="dot">✦</span>
+      <span>Curated Beauty</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ========== WELCOME INTRO ========== -->
+  <section class="intro section">
+    <div class="container">
+      <div class="intro__inner">
+        <p class="intro__eyebrow fade-up">welcome to the nest</p>
+        <h2 class="intro__lead fade-up" data-delay="100">
+          "A slower pace, a more beautiful space — this is what we're building here."
+        </h2>
+        <div class="divider divider--center fade-up" data-delay="160"></div>
+        <p class="intro__body fade-up" data-delay="220" style="text-align: justify; text-align-last: center;">
+          This is a place for those who believe that the way we live matters — that the objects we 
+          surround ourselves with, the rituals we keep, and the spaces we tend to are small acts of 
+          care for ourselves. I write about home decor, interior styling, nail designs, and the quiet 
+          beauty of an intentional everyday. Pull up a chair. Stay a while.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LATEST POSTS ========== -->
+  <section class="posts-section section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <div>
+          <p class="section-label">from the journal</p>
+          <h2 class="section__title">Latest Stories</h2>
+        </div>
+        <a href="/blog" class="section__link">View all posts</a>
+      </div>
+
+      <div class="posts-grid" id="latest-posts-container">
+        <!-- Dynamic posts will be injected here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SHOP FAVORITES ========== -->
+  <section class="shop-teaser section">
+    <div class="container">
+      <div class="section__header fade-up">
+        <div>
+          <p class="section-label">things I love</p>
+          <h2 class="section__title">Shop My Favorites</h2>
+        </div>
+        <a href="/shop" class="section__link">Browse all</a>
+      </div>
+
+      <div class="shop-grid">
+
+        <div class="product-card fade-up" data-delay="0">
+          <div class="product-card__img-wrap">
+            <img src="images/product-1.png" alt="Hand-poured beeswax candle in ceramic jar" loading="lazy" />
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__name">Maison Balzac Objet Candle</p>
+            <p class="product-card__note">What I light every evening. The scent is warm amber and cedarwood — completely addictive.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="product-card__link">Shop Now →</a>
+          </div>
+        </div>
+
+        <div class="product-card fade-up" data-delay="80">
+          <div class="product-card__img-wrap">
+            <div class="img-placeholder" style="background:linear-gradient(135deg,#E8D9CC,#D4C4B5,#C9B0A0);"></div>
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__name">H&M Home Linen Throw</p>
+            <p class="product-card__note">This lives on my sofa permanently. The oat colour goes with everything.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="product-card__link">Shop Now →</a>
+          </div>
+        </div>
+
+        <div class="product-card fade-up" data-delay="160">
+          <div class="product-card__img-wrap">
+            <div class="img-placeholder" style="background:linear-gradient(135deg,#D9D1C4,#C9BEA8,#B8AA94);"></div>
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__name">Assouline Coffee Table Book Set</p>
+            <p class="product-card__note">Beautiful spines, beautiful content. These are the books I style and actually read.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="product-card__link">Shop Now →</a>
+          </div>
+        </div>
+
+        <div class="product-card fade-up" data-delay="240">
+          <div class="product-card__img-wrap">
+            <div class="img-placeholder" style="background:linear-gradient(135deg,#CCC4B4,#B8B0A0,#A8A090);"></div>
+          </div>
+          <div class="product-card__body">
+            <p class="product-card__name">Muuto Stem Vase, Nude</p>
+            <p class="product-card__note">It's been on my bedside table for two years. Simple, beautiful, always right.</p>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="product-card__link">Shop Now →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== NEWSLETTER ========== -->
+  <section class="newsletter section">
+    <div class="container">
+      <div class="newsletter__inner">
+        <p class="newsletter__kicker fade-up">stay in the nest</p>
+        <h2 class="newsletter__heading fade-up" data-delay="80">join the nest</h2>
+        <p class="newsletter__desc fade-up" data-delay="140">
+          Weekly-ish thoughts on home decor, nail design, shop edits, and what's on my bedside table.
+          No noise. Just beauty.
+        </p>
+        <form class="newsletter__form fade-up" data-delay="200" action="#" method="post">
+          <input
+            class="newsletter__input"
+            type="email"
+            id="newsletter-email"
+            placeholder="your@email.com"
+            required
+            aria-label="Email address"
+          />
+          <button class="newsletter__btn" type="submit" id="newsletter-btn">Subscribe</button>
+        </form>
+        <p class="newsletter__disclaimer fade-up" data-delay="260">No spam, ever. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__brand-name">Nest of Aesthetics</p>
+          <p class="footer__brand-desc">A quiet editorial space for home decor, interior styling, and nail designs.</p>
+          <div class="footer__social" style="margin-top:1.5rem;">
+            <a href="#" aria-label="Instagram" target="_blank">&#9651;</a>
+            <a href="https://in.pinterest.com/nestofaesthetics/" aria-label="Pinterest" target="_blank">&#9671;</a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Navigate</p>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Journal</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Categories</p>
+          <ul>
+            <li><a href="/blog">Home Decor</a></li>
+            <li><a href="/blog">Nail Design</a></li>
+            <li><a href="/blog">Interior Styling</a></li>
+            <li><a href="/blog">Lifestyle</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__col-title">Info</p>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Affiliate Disclosure</a></li>
+            <li><a href="/contact">Work With Me</a></li>
+            <li><a href="/contact">Press</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2024 Nest of Aesthetics. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('latest-posts-container');
+      if (!container) return;
+
+      fetch('/api/posts')
+        .then(res => res.json())
+        .then(posts => {
+          if (!posts || posts.length === 0) {
+            container.innerHTML = `
+              <div class="no-posts fade-up" style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem; background: var(--bg-alt); border-radius: 8px; border: 1px dashed var(--border-light); margin-top: 1rem;">
+                <p style="font-family: var(--serif); font-size: 1.5rem; margin-bottom: 1rem;">No stories found in the nest yet.</p>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">Start by writing a post in the Content Manager.</p>
+                <a href="/admin/" class="btn btn--outline" style="display: inline-block;">Open Content Manager</a>
+              </div>
+            `;
+            return;
+          }
+
+          // Show maximum of 3 posts on the homepage
+          const latestPosts = posts.slice(0, 3);
+          container.innerHTML = latestPosts.map((post, idx) => {
+            const dateStr = post.date ? new Date(post.date).toLocaleDateString('en-US', {
+              month: 'long',
+              day: 'numeric',
+              year: 'numeric'
+            }) : 'Recently';
+            
+            // Calculate reading time dynamically
+            const wordCount = post.rawBody ? post.rawBody.trim().split(/\s+/).length : 0;
+            const readingTime = Math.max(1, Math.ceil(wordCount / 200)) + ' min read';
+
+            const isNailCategory = post.category === 'Nail Art' || post.category === 'Nail Design';
+            const tagStyle = isNailCategory ? 'background:rgba(212,181,160,0.15);color:var(--accent-rose);' : '';
+
+            return `
+              <article class="post-card fade-up in-view" style="opacity: 1; transform: translateY(0);">
+                <a href="/post?slug=${post.slug}" class="post-card__link" aria-label="Read: ${post.title}"></a>
+                <div class="post-card__img-wrap">
+                  <img src="${post.cover_image || 'images/blog-1.png'}" alt="${post.title}" loading="lazy" />
+                  <span class="tag post-card__tag" style="${tagStyle}">${post.category || 'Uncategorized'}</span>
+                </div>
+                <div class="post-card__body">
+                  <h3 class="post-card__title">${post.title}</h3>
+                  <p class="post-card__excerpt">${post.description || ''}</p>
+                  <p class="post-card__meta">${dateStr} · ${readingTime}</p>
+                  <span class="post-card__read-more">Read article</span>
+                </div>
+              </article>
+            `;
+          }).join('');
+        })
+        .catch(err => {
+          console.error('Error fetching posts:', err);
+          container.innerHTML = `<p style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">Failed to load latest stories.</p>`;
+        });
+    });
+  </script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

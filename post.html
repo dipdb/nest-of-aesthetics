@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Art of the Coffee Table Vignette — Nest of Aesthetics</title>
+  <meta name="description" content="A well-styled coffee table is the beating heart of a living room. Here's exactly how I build mine — with layering, breathing room, and one element that always surprises." />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    body { padding-top: 0; }
+
+    .progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: var(--accent-sand);
+      z-index: 9999;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading progress bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav scrolled" id="nav">
+    <a href="/" class="nav__logo">Nest of Aesthetics</a>
+    <ul class="nav__links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog" class="active">Journal</a></li>
+      <li><a href="/shop">Shop</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile" id="mobileNav">
+    <button class="nav__mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="/">Home</a>
+    <a href="/blog">Journal</a>
+    <a href="/shop">Shop</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+
+  <!-- POST HERO IMAGE -->
+  <div class="post-hero-img-wrap">
+    <!-- Dynamic cover image will be injected here -->
+  </div>
+
+  <!-- POST HEADER -->
+  <header class="post-header">
+    <!-- Dynamic header information will be injected here -->
+  </header>
+
+  <div class="post-divider"></div>
+
+  <!-- POST BODY -->
+  <article class="post-body">
+    <!-- Dynamic body content will be injected here -->
+  </article>
+
+  <!-- RELATED POSTS -->
+  <section class="related-posts">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <p class="intro__eyebrow">Keep reading</p>
+        <h2 style="font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.5rem);color:var(--text);">You May Also Enjoy</h2>
+      </div>
+      <div class="related-grid">
+        <!-- Dynamic related posts will be injected here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter section">
+    <div class="container">
+      <div class="newsletter__inner">
+        <p class="newsletter__kicker fade-up">stay in the nest</p>
+        <h2 class="newsletter__heading fade-up" data-delay="80">join the nest</h2>
+        <p class="newsletter__desc fade-up" data-delay="140">Weekly-ish thoughts on home decor, nail design, shop edits, and what's on my bedside table.</p>
+        <form class="newsletter__form fade-up" data-delay="200" action="#" method="post">
+          <input class="newsletter__input" type="email" placeholder="your@email.com" required aria-label="Email address" />
+          <button class="newsletter__btn" type="submit">Subscribe</button>
+        </form>
+        <p class="newsletter__disclaimer fade-up" data-delay="260">No spam, ever. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__brand-name">Nest of Aesthetics</p>
+          <p class="footer__brand-desc">A quiet editorial space for home decor, interior styling, and nail designs.</p>
+          <div class="footer__social" style="margin-top:1.5rem;">
+            <a href="#" aria-label="Instagram" target="_blank">&#9651;</a>
+            <a href="https://in.pinterest.com/nestofaesthetics/" aria-label="Pinterest" target="_blank">&#9671;</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Navigate</p>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Journal</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Categories</p>
+          <ul>
+            <li><a href="/blog">Home Decor</a></li>
+            <li><a href="/blog">Nail Design</a></li>
+            <li><a href="/blog">Interior Styling</a></li>
+            <li><a href="/blog">Lifestyle</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Info</p>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Affiliate Disclosure</a></li>
+            <li><a href="/contact">Work With Me</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2024 Nest of Aesthetics. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script>
+    // Reading progress bar setup
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+      window.addEventListener('scroll', () => {
+        const body = document.body;
+        const html = document.documentElement;
+        const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+        const winHeight = window.innerHeight;
+        const scrolled = window.scrollY;
+        const progress = (scrolled / (docHeight - winHeight)) * 100;
+        progressBar.style.width = Math.min(progress, 100) + '%';
+      }, { passive: true });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get('slug');
+
+      if (!slug) {
+        window.location.href = '/blog';
+        return;
+      }
+
+      fetch('/api/posts')
+        .then(res => {
+          if (!res.ok) throw new Error('Failed to load stories');
+          return res.json();
+        })
+        .then(posts => {
+          const post = posts.find(p => p.slug === slug);
+          if (!post) throw new Error('Post not found');
+
+          document.title = `${post.title} — Nest of Aesthetics`;
+          
+          const heroImgWrap = document.querySelector('.post-hero-img-wrap');
+          if (post.cover_image) {
+            heroImgWrap.innerHTML = `<img src="${post.cover_image}" alt="${post.title}" class="post-hero__img" />`;
+          } else {
+            heroImgWrap.style.display = 'none';
+          }
+
+          const dateStr = post.date ? new Date(post.date).toLocaleDateString('en-US', {
+            month: 'long', day: 'numeric', year: 'numeric'
+          }) : 'Recently';
+          
+          const wordCount = post.rawBody ? post.rawBody.trim().split(/\s+/).length : 0;
+          const readingTime = Math.max(1, Math.ceil(wordCount / 200)) + ' min read';
+
+          const header = document.querySelector('.post-header');
+          header.innerHTML = `
+            <span class="tag post-header__tag">${post.category || 'Story'}</span>
+            <h1 class="post-header__title">${post.title}</h1>
+            <div class="post-header__meta">
+              <span>By Suchita</span>
+              <span>✦</span>
+              <span>${dateStr}</span>
+              <span>✦</span>
+              <span>${readingTime}</span>
+            </div>
+          `;
+
+          const bodyContainer = document.querySelector('.post-body');
+          
+          let affiliateHtml = '';
+          if (post.affiliate_links && post.affiliate_links.length > 0) {
+            affiliateHtml = `
+              <div class="post-shop">
+                <h3 class="post-shop__title">Shop This Post</h3>
+                <p class="post-shop__desc">Items featured or referenced in this article — affiliate links, but genuinely loved.</p>
+                <div class="post-shop-grid">
+                  ${post.affiliate_links.map(link => `
+                    <div class="product-card">
+                      <div class="product-card__img-wrap">
+                        <div class="img-placeholder" style="background:linear-gradient(135deg,#D9D1C4,#C9BEA8,#B8AA94);width:100%;height:100%;"></div>
+                      </div>
+                      <div class="product-card__body">
+                        <p class="product-card__name">${link.title}</p>
+                        <p class="product-card__note">Featured item in this editorial.</p>
+                        <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="product-card__link">Shop Now →</a>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            `;
+          }
+
+          bodyContainer.innerHTML = `
+            ${post.body}
+            ${affiliateHtml}
+          `;
+
+          // Related Posts using the same list in memory
+          const relatedGrid = document.querySelector('.related-grid');
+          if (relatedGrid) {
+            const otherPosts = posts.filter(p => p.slug !== slug);
+            if (otherPosts.length === 0) {
+              const relSection = document.querySelector('.related-posts');
+              if (relSection) relSection.style.display = 'none';
+            } else {
+              const showRelated = otherPosts.slice(0, 3);
+              relatedGrid.innerHTML = showRelated.map(p => {
+                const rDateStr = p.date ? new Date(p.date).toLocaleDateString('en-US', {
+                  month: 'long', day: 'numeric', year: 'numeric'
+                }) : 'Recently';
+                const rWordCount = p.rawBody ? p.rawBody.trim().split(/\s+/).length : 0;
+                const rReadingTime = Math.max(1, Math.ceil(rWordCount / 200)) + ' min read';
+
+                return `
+                  <article class="post-card fade-up in-view" style="opacity: 1; transform: translateY(0);">
+                    <a href="/post?slug=${p.slug}" class="post-card__link" aria-label="Read: ${p.title}"></a>
+                    <div class="post-card__img-wrap">
+                      <img src="${p.cover_image || 'images/blog-1.png'}" alt="${p.title}" loading="lazy" />
+                    </div>
+                    <span class="tag post-card__tag">${p.category || 'Story'}</span>
+                    <div class="post-card__body">
+                      <h3 class="post-card__title">${p.title}</h3>
+                      <p class="post-card__meta">${rDateStr} · ${rReadingTime}</p>
+                    </div>
+                  </article>
+                `;
+              }).join('');
+            }
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          document.querySelector('.post-body').innerHTML = `
+            <div style="text-align: center; padding: 4rem 0;">
+              <h2 style="font-family: var(--serif); margin-bottom: 1rem;">Oops! Story Not Found</h2>
+              <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem;">We couldn't find the requested story in the nest.</p>
+              <a href="/blog" class="btn btn--outline">Back to Journal</a>
+            </div>
+          `;
+        });
+    });
+  </script>
+</body>
+</html>

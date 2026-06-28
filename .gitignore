@@ -1,0 +1,7 @@
+node_modules/
+.gemini/
+.agents/
+*.log
+api/posts.json
+api/shop.json
+.DS_Store

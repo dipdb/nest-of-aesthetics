@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Nest of Aesthetics</title>
+  <meta name="description" content="The story behind Nest of Aesthetics — a soft editorial space for home decor, interior styling, and a more intentional, beautiful everyday." />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    body { padding-top: 70px; }
+
+    .about-hero-strip {
+      background: var(--bg-alt);
+      padding: clamp(3rem, 8vw, 7rem) 0;
+      text-align: center;
+    }
+
+    .about-hero-strip blockquote {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-style: italic;
+      color: var(--text);
+      font-weight: 300;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.3;
+    }
+
+    .about-hero-strip cite {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-sand);
+      font-style: normal;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav__logo">Nest of Aesthetics</a>
+    <ul class="nav__links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog">Journal</a></li>
+      <li><a href="/shop">Shop</a></li>
+      <li><a href="/about" class="active">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile" id="mobileNav">
+    <button class="nav__mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+    <a href="/">Home</a>
+    <a href="/blog">Journal</a>
+    <a href="/shop">Shop</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+
+  <!-- ABOUT HERO STRIP -->
+  <div class="about-hero-strip">
+    <div class="container">
+      <p class="page-hero__kicker fade-up" style="margin-bottom:1.5rem;">the person behind the page</p>
+      <blockquote class="fade-up" data-delay="100">
+        "I believe a beautiful life is built slowly, in small deliberate moments."
+      </blockquote>
+      <cite class="fade-up" data-delay="180">— Suchita, founder of Nest of Aesthetics</cite>
+    </div>
+  </div>
+
+  <!-- MY STORY — SPLIT -->
+  <section class="section">
+    <div class="container">
+      <div class="about-split">
+
+        <div class="about-split__img-wrap fade-in">
+          <img src="images/about.png" alt="Suchita, founder of Nest of Aesthetics, standing in a sunlit apartment in a cream linen dress" loading="lazy" />
+        </div>
+
+        <div class="fade-up" data-delay="100">
+          <p class="about-split__kicker">01 — my story</p>
+          <h2 class="about-split__title">From rushed to slow,<br/>from consumed to curated.</h2>
+          <div class="divider"></div>
+          <p class="about-split__body" style="text-align: justify;">
+            A few years ago, I lived in a beautiful-ish flat that never quite felt like mine. 
+            It was full of things I'd collected quickly — furniture I'd bought cheap without thinking, 
+            objects that had been given to me, art prints I'd chosen in a hurry. 
+            I was busy, I was rushing, and my home reflected that.
+          </p>
+          <p class="about-split__body" style="text-align: justify;">
+            Then, during a long, slow autumn, something shifted. I started replacing things carefully, 
+            one at a time. I started spending Sunday mornings rearranging objects rather than 
+            scrolling. I found that the act of making my space more beautiful made me feel more 
+            peaceful — and that this was worth writing about.
+          </p>
+          <p class="about-split__body" style="text-align: justify;">
+            Nest of Aesthetics was born from that shift. It's a record of how I live, what I love,
+            and what I'm learning about the small architecture of a beautiful home.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="section" style="background:var(--bg-alt);">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <p class="page-hero__kicker fade-up">what this space is about</p>
+        <h2 class="fade-up" data-delay="80" style="font-family:var(--serif);color:var(--text);font-size:clamp(2rem,4vw,3rem);">what you'll find here</h2>
+      </div>
+      <div class="about-values">
+
+        <div class="fade-up" data-delay="0">
+          <p class="about-value__number">01</p>
+          <h3 class="about-value__title">Aesthetic Lifestyle</h3>
+          <p class="about-value__text" style="text-align: justify;">
+            Essays and inspiration for an intentional everyday, focusing on curated details, 
+            and the beauty of quiet, daily moments.
+          </p>
+        </div>
+
+        <div class="fade-up" data-delay="120">
+          <p class="about-value__number">02</p>
+          <h3 class="about-value__title">Home Decor &amp; Styling</h3>
+          <p class="about-value__text" style="text-align: justify;">
+            Room-by-room guides, vignette studies, nail designs, and the honest story of how I've decorated 
+            my own spaces on a real budget, over real time.
+          </p>
+        </div>
+
+        <div class="fade-up" data-delay="240">
+          <p class="about-value__number">03</p>
+          <h3 class="about-value__title">Curated Finds</h3>
+          <p class="about-value__text" style="text-align: justify;">
+            Things I actually love using. Honest, considered, personal. No brands 
+            I haven't lived with. No affiliate links I don't stand behind.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW I SHOP & STYLE — reverse split -->
+  <section class="section">
+    <div class="container">
+      <div class="about-split reverse">
+
+        <div class="about-split__img-wrap fade-in">
+          <img src="images/about_2.png" alt="Nest of Aesthetics" loading="lazy" />
+        </div>
+
+        <div class="fade-up" data-delay="80">
+          <p class="about-split__kicker">02 — how I shop &amp; style</p>
+          <h2 class="about-split__title">Slowly, carefully,<br/>and always honestly.</h2>
+          <div class="divider"></div>
+          <p class="about-split__body" style="text-align: justify;">
+            I don't recommend things lightly. Every single product and object I share on this space is 
+            something I genuinely love, use, and cherish in my own home. Before anything makes its way 
+            onto this site, it has to be a true part of my daily life, bringing both quiet utility and 
+            aesthetic joy to my personal space.
+          </p>
+          <p class="about-split__body" style="text-align: justify;">
+            When you see a link on Nest of Aesthetics, it's because I have lived with that piece, used 
+            it repeatedly, and truly adore it. I only partner with brands whose products have earned a 
+            permanent place in my home and my heart, and I will always share my honest, firsthand 
+            experience of loving and using them.
+          </p>
+          <p class="about-split__body" style="text-align: justify;">
+            Beauty, for me, is about surrounding ourselves with things that bring us genuine happiness. 
+            This space is a collection of the products I actually love using, shared to help you curate 
+            a home that feels warm, intentional, and beautifully lived-in.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LET'S CONNECT -->
+  <div class="connect-strip">
+    <div class="container">
+      <h2 class="connect-strip__title fade-up">let's connect</h2>
+      <p class="connect-strip__desc fade-up" data-delay="80">
+        I'm most active on Instagram and Pinterest — come find me there for the daily quiet moments.
+      </p>
+      <div class="connect-strip__socials fade-up" data-delay="140">
+        <a href="#" aria-label="Instagram" target="_blank">&#9651;</a>
+        <a href="https://in.pinterest.com/nestofaesthetics/" aria-label="Pinterest" target="_blank">&#9671;</a>
+      </div>
+      <div class="fade-up" data-delay="200">
+        <p class="newsletter__kicker" style="margin-bottom:1rem;">or join the newsletter</p>
+        <form class="newsletter__form" style="max-width:380px;margin:0 auto;" action="#" method="post">
+          <input class="newsletter__input" type="email" placeholder="your@email.com" required aria-label="Email address" />
+          <button class="newsletter__btn" type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__brand-name">Nest of Aesthetics</p>
+          <p class="footer__brand-desc">A quiet editorial space for home decor, interior styling, and nail designs.</p>
+          <div class="footer__social" style="margin-top:1.5rem;">
+            <a href="#" aria-label="Instagram" target="_blank">&#9651;</a>
+            <a href="https://in.pinterest.com/nestofaesthetics/" aria-label="Pinterest" target="_blank">&#9671;</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Navigate</p>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Journal</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Categories</p>
+          <ul>
+            <li><a href="/blog">Home Decor</a></li>
+            <li><a href="/blog">Nail Design</a></li>
+            <li><a href="/blog">Interior Styling</a></li>
+            <li><a href="/blog">Lifestyle</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Info</p>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Affiliate Disclosure</a></li>
+            <li><a href="/contact">Work With Me</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2024 Nest of Aesthetics. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>

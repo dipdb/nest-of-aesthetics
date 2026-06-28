@@ -1,0 +1,15 @@
+{
+  "name": "nest-of-aesthetics",
+  "version": "1.0.0",
+  "description": "A quiet editorial space for home decor, interior styling, and nail designs.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "cms": "npx decap-server",
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "marked": "^18.0.4"
+  }
+}
