@@ -1,6 +1,6 @@
 ---
 title: Small Kitchen? 12 Ways To Make It Feel Bigger & Brighter
-slug: "Kitchen Makeover "
+slug: small-kitchen-feel-bigger
 description: >
   You know that feeling when you walk into your kitchen in the morning, and
   before you've even made your coffee something already feels off?
