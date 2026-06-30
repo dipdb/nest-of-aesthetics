@@ -24,6 +24,21 @@ function parseMarkdown(md) {
     (_, imgTag) => wrapImageInFigure(imgTag)
   );
 
+  // Rewrite relative image paths (e.g., "1.png" -> "/public/uploads/1.png")
+  html = html.replace(/<img([^>]+)src="([^"]+)"/gi, (match, beforeSrc, srcValue) => {
+    let newSrc = srcValue;
+    if (!srcValue.startsWith('/') && !srcValue.startsWith('http://') && !srcValue.startsWith('https://')) {
+      if (srcValue.startsWith('public/uploads/')) {
+        newSrc = `/${srcValue}`;
+      } else if (srcValue.startsWith('uploads/')) {
+        newSrc = `/public/${srcValue}`;
+      } else {
+        newSrc = `/public/uploads/${srcValue}`;
+      }
+    }
+    return `<img${beforeSrc}src="${newSrc}"`;
+  });
+
   return html;
 }
 
@@ -41,6 +56,7 @@ function wrapImageInFigure(imgTag) {
 function getPostData(fileName) {
   const filePath = path.join(POSTS_DIR, fileName);
   try {
+    const stats = fs.statSync(filePath);
     const rawContent = fs.readFileSync(filePath, 'utf8');
     const frontmatterRegex = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/;
     const match = rawContent.match(frontmatterRegex);
@@ -54,6 +70,7 @@ function getPostData(fileName) {
 
       return {
         ...metadata,
+        date: metadata.date || stats.mtime.toISOString(),
         body: parsedBody,
         rawBody: markdownBody,
         filename: fileName,
@@ -62,6 +79,7 @@ function getPostData(fileName) {
     } else {
       const slug = path.basename(fileName, '.md');
       return {
+        date: stats.mtime.toISOString(),
         slug: slug,
         title: slug.replace(/-/g, ' '),
         body: parseMarkdown(rawContent),

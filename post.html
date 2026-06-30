@@ -259,7 +259,7 @@
 
                 return `
                   <article class="post-card fade-up in-view" style="opacity: 1; transform: translateY(0);">
-                    <a href="/post?slug=${p.slug}" class="post-card__link" aria-label="Read: ${p.title}"></a>
+                    <a href="/post?slug=${encodeURIComponent(p.slug)}" class="post-card__link" aria-label="Read: ${p.title}"></a>
                     <div class="post-card__img-wrap">
                       <img src="${p.cover_image || 'images/blog-1.png'}" alt="${p.title}" loading="lazy" />
                     </div>
